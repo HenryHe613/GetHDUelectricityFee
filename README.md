@@ -20,7 +20,7 @@
 
 寝室查电费的网页如下：[URL](https://wap.xt.beescrm.com/base/electricity_hd/index/ele_id/7)，请选择自己的楼、楼层、房间，然后查询。此时不要退出，把URL复制下来，删掉https，改为http，就是所需的URL。
 
-4. 等着吧，默认21:00自动运行脚本。或者可以到Action中手动运行测试看看。
+4. 等着吧，默认21:30自动运行脚本。或者可以到Action中手动运行测试看看。
 
 ## 鸣谢
 
