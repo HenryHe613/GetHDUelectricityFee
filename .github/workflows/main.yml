@@ -3,6 +3,7 @@ name: Run Python Script
 on:
   schedule:
     - cron: '0 21 * * *' # 每天中午12点运行
+  workflow_dispatch:  # 允许手动触发
 
 jobs:
   run-script:
