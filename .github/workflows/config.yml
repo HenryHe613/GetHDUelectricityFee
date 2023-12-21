@@ -1,1 +1,28 @@
+name: Run Python Script
 
+on:
+  schedule:
+    - cron: '0 21 * * *' # 每天中午12点运行
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11' # 指定Python版本
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run Python script
+      env:
+        URL: ${{ secrets.URL }}
+        TOKEN: ${{ secrets.TOKEN }}
+        SECRET: ${{ secrets.SECRET }}
+      run: python main.py
