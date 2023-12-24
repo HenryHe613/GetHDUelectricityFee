@@ -8,6 +8,7 @@ import base64
 import urllib
 import hmac
 import os
+import datetime
 from bs4 import BeautifulSoup
 
 def encrypt(secret):
@@ -51,20 +52,29 @@ if __name__=='__main__':
     webhook = 'https://oapi.dingtalk.com/robot/send?access_token='+access_token+'&timestamp='+timestamp+'&sign='+sign
     # API URL
     api_url = os.getenv('URL')
-    #定义要发送的数据
+    text="好好好～～～牛魔*zc*洗澡!————hby\n"+"**剩余电费**"+fetch_electricity_fee(api_url)+"\n"
     data = {
-        "msgtype": "markdown", # 定义数据格式为markdown，还有其他格式，具体参考钉钉开放文档
+        "msgtype": "markdown", 
         "markdown": {
-            "title": "你好308",
-            "text": "好好好～～～牛魔zc洗澡!————hby"+"剩余电费"+fetch_electricity_fee(api_url)+"\n"
+            "title": "牛魔们好哇",
+            "text": text
         },
         "at": {
-            "atMobiles": [
-                "12345678901", 
-                "",  # 这里的手机号和上面的保持一致
-            ],
             "isAtAll": True # @全体成员
         }
     }
-    #发送post请求
     requests.post(webhook, data=json.dumps(data), headers=headers)
+    current_date = datetime.date.today()
+    if current_date.weekday()==6:
+        text2="牛魔hby提醒大家***记单词***啦～\n"+"牛魔zc提醒大家少撸管，多休息\n"
+        data2 = {
+            "msgtype": "markdown", 
+            "markdown": {
+                "title": "牛魔们好哇",
+                "text": text2
+            },
+            "at": {
+                "isAtAll": True # @全体成员
+            }
+        }
+        requests.post(webhook, data=json.dumps(data), headers=headers)
