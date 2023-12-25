@@ -77,4 +77,4 @@ if __name__=='__main__':
                 "isAtAll": True # @全体成员
             }
         }
-        requests.post(webhook, data=json.dumps(data), headers=headers)
+        requests.post(webhook, data2=json.dumps(data2), headers=headers)
