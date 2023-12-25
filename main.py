@@ -65,16 +65,16 @@ if __name__=='__main__':
     }
     requests.post(webhook, data=json.dumps(data), headers=headers)
     current_date = datetime.date.today()
-    if current_date.weekday()==6:
-        text2="牛魔hby提醒大家***记单词***啦～\n"+"牛魔zc提醒大家少撸管，多休息\n"
-        data2 = {
-            "msgtype": "markdown", 
-            "markdown": {
-                "title": "牛魔们好哇",
-                "text": text2
-            },
-            "at": {
-                "isAtAll": True # @全体成员
-            }
+    # if current_date.weekday()==6:
+    text2="牛魔hby提醒大家***记单词***啦～\n"+"牛魔zc提醒大家少撸管，多休息\n"
+    data2 = {
+        "msgtype": "markdown", 
+        "markdown": {
+            "title": "牛魔们好哇",
+            "text": text2
+        },
+        "at": {
+            "isAtAll": True # @全体成员
         }
-        requests.post(webhook, data2=json.dumps(data2), headers=headers)
+    }
+    requests.post(webhook, data2=json.dumps(data2), headers=headers)
